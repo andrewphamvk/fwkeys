@@ -1,0 +1,42 @@
+.container {
+    width: 800px;   
+    margin: 0 auto;
+    overflow-wrap: break-word;
+}
+
+.container2 {
+    composes: container;
+    background-color: grey;
+}
+
+.line {
+    margin-top: 12px;
+    display: block;
+    /* background-color: papayawhip; */
+    padding-top: 8px;
+}
+
+.token {
+    font-family: 'Lucida Console', monospace;
+    font-size: x-large;
+    padding-top: 8px;
+}
+
+.token > span {
+    padding-top: 8px
+}
+
+.symbol_valid {
+    background: #e7fbd3;
+    color:#0e630e;
+    padding-top: 8px;
+}
+
+#cursor {
+}
+
+.blink {
+    background-color: black;
+    color: white;
+}
+  

@@ -1,0 +1,15 @@
+/* Remove container from document flow */
+.container {
+    position: absolute;
+    overflow: hidden;
+}
+
+/* Remove visible borders from input and reduce size */
+.input {
+    width: 0em;
+    height: 0em;
+    border: none;
+    outline: none;
+    padding: 0em;
+    margin: 0em;
+}
