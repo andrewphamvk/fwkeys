@@ -22,16 +22,14 @@ function splitLines(input: string, maxLineLength: number) {
 
 // Generate the JSX elements to render 
 const generateRenderLines = (lines: string[][], cursorIndex: number): JSX.Element => {
-  console.log('calculating render lines')
   let currentIndex = 0
   return (<>
-    {lines.map(line => <span className={styles.line}>
-      {line.map(word => <span className={styles.token}>
+    {lines.map((line, lineIndex) => <span key={lineIndex} className={styles.line}>
+      {line.map((word, wordIndex) => <span key={wordIndex} className={styles.token}>
         {word.split("").map(ch => {
           let className = ""
           let id = ""
           if (currentIndex === cursorIndex) {
-            console.log("cursor indexed")
             id = styles.cursor
           }
           if (currentIndex < cursorIndex) {
@@ -41,7 +39,7 @@ const generateRenderLines = (lines: string[][], cursorIndex: number): JSX.Elemen
           currentIndex += 1
 
           return (
-            <span id={id} className={className}>{ch}</span>
+            <span key={currentIndex - 1} id={id} className={className}>{ch}</span>
           )
         })}
       </span>)}
@@ -117,7 +115,6 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
     const lines: string[][] = splitLines(input, maxLineLength)
     setRenderLines(generateRenderLines(lines, cursorIndex))
     setCursorBlink(true)
-    console.log("generated")
   }, [cursorIndex])
 
   return (

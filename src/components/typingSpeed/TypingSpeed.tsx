@@ -24,7 +24,6 @@ const TypingSpeed = (props: TypingSpeedProps) => {
 
   React.useEffect(() => {
     timer.start()
-    console.log("start")
   }, [])
 
   return (

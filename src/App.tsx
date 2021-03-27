@@ -30,7 +30,6 @@ function App() {
   const [activeKeyMap, setActiveKeyMap] = React.useState(new Set<string>())
   const [lastKeyPressed, setLastKeyPressed] = React.useState<KeyPressEvent>({ key: "" })
   const [typingState, typingDispatch] = React.useReducer(typingReducer, { allTypedEntries: 0 })
-  console.log(typingState)
   // const [keyEvent, setKeyEvent] = React.useState(new React.FocusEvent<HTMLInputElement>())
 
   // Set the focus of the application to the background input
