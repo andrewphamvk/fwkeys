@@ -3,11 +3,11 @@ import DoubleSymbolKey from '../keys/DoubleSymbolKey'
 import SingleSymbolKey from '../keys/SingleSymbolKey'
 import * as Constants from '../../constants/constants'
 
-interface IKeyboardProps {
+type KeyboardProps = {
   activeKeyMap: Set<string>
 }
 
-const Keyboard = ({ activeKeyMap }: IKeyboardProps) => {
+const Keyboard = ({ activeKeyMap }: KeyboardProps) => {
   return (
     <div className={styles.container}>
       <svg className={styles.area}>

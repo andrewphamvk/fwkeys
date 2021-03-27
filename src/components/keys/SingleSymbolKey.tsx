@@ -1,7 +1,7 @@
 import * as Constants from '../../constants/constants'
 import styles from './keys.module.css'
 
-interface ISingleSymbolKey {
+type SingleSymbolKeyProps = {
   x: string | number,
   y: string | number,
   width?: string | number,
@@ -10,7 +10,7 @@ interface ISingleSymbolKey {
   isActive?: boolean
 }
 
-const SingleSymbolKey = (props: ISingleSymbolKey) => {
+const SingleSymbolKey = (props: SingleSymbolKeyProps) => {
   return (
     <svg
       className={props.isActive ? styles.active : styles.key}

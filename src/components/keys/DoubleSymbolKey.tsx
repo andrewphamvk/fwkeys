@@ -1,7 +1,7 @@
 import * as Constants from '../../constants/constants'
 import styles from './keys.module.css'
 
-interface IDoubleSymbolKey {
+type DoubleSymbolKeyProps = {
   x: string | number,
   y: string | number,
   width?: string | number,
@@ -10,7 +10,7 @@ interface IDoubleSymbolKey {
   isActive?: boolean
 }
 
-const DoubleSymbolKey = (props: IDoubleSymbolKey) => {
+const DoubleSymbolKey = (props: DoubleSymbolKeyProps) => {
   return (
     <svg
       className={props.isActive ? styles.active : styles.key}
