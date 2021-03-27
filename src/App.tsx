@@ -3,6 +3,23 @@ import Header from './components/header/Header'
 import Display from './components/display/Display'
 import Keyboard from './components/keyboard/Keyboard'
 import BackgroundInput from './components/backgroundInput/BackgroundInput'
+import TypingSpeed from './components/typingSpeed/TypingSpeed'
+
+type TypingState = {
+  allTypedEntries: number
+}
+
+type TypingAction =
+  | { type: 'increment_typed_entries' }
+
+const typingReducer = (state: TypingState, action: TypingAction): TypingState => {
+  switch (action.type) {
+    case 'increment_typed_entries':
+      return { ...state, allTypedEntries: state['allTypedEntries'] + 1 }
+    default:
+      throw new Error("Unknown action")
+  }
+}
 
 type KeyPressEvent = {
   key: string
@@ -12,6 +29,8 @@ function App() {
   const backgroundInputElement = React.useRef<HTMLInputElement>(null)
   const [activeKeyMap, setActiveKeyMap] = React.useState(new Set<string>())
   const [lastKeyPressed, setLastKeyPressed] = React.useState<KeyPressEvent>({ key: "" })
+  const [typingState, typingDispatch] = React.useReducer(typingReducer, { allTypedEntries: 0 })
+  console.log(typingState)
   // const [keyEvent, setKeyEvent] = React.useState(new React.FocusEvent<HTMLInputElement>())
 
   // Set the focus of the application to the background input
@@ -48,7 +67,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Display keyPressed={lastKeyPressed} />
+      <TypingSpeed allTypedEntries={typingState.allTypedEntries} />
+      <Display keyPressed={lastKeyPressed} typingDispatch={typingDispatch} />
       <Keyboard activeKeyMap={activeKeyMap} />
       <BackgroundInput inputRef={backgroundInputElement} onBlur={shiftFocus} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} />
     </div>

@@ -54,13 +54,16 @@ type KeyPress = {
 }
 
 type DisplayProps = {
-  keyPressed: KeyPress
+  keyPressed: KeyPress,
+  typingDispatch: React.Dispatch<{
+    type: "increment_typed_entries"
+  }>
 }
 
 let nextInput = "thould predining befor ther have just thread and might submit lidzy any livil had the excely who prest sharly"
 let input = "frez told volute her have later remonly coly wered recold othe exced you past for must saw wher betwen"
 
-const Display = ({ keyPressed }: DisplayProps) => {
+const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
   const [cursorIndex, setCursorIndex] = React.useState(0)
   const [renderLines, setRenderLines] = React.useState(<></>)
   const [cursorBlink, setCursorBlink] = React.useState(false)
@@ -97,10 +100,10 @@ const Display = ({ keyPressed }: DisplayProps) => {
     if (input[cursorIndex] === keyPressed.key) {
       // If the correct key is pressed, deactivate blinker so that it can be activated after render lines generation
       setCursorBlink(false)
+      typingDispatch({ type: 'increment_typed_entries' })
       if (cursorIndex === input.length - 1) {
         [input, nextInput] = [nextInput, input]
         setCursorIndex(0)
-        console.log("end reached")
       }
       else {
         setCursorIndex(prev => prev + 1)
