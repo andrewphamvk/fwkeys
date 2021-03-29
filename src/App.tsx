@@ -1,10 +1,11 @@
 import React from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
+
 import Header from './components/header/Header'
 import Display from './components/display/Display'
 import Keyboard from './components/keyboard/Keyboard'
 import BackgroundInput from './components/backgroundInput/BackgroundInput'
 import TypingSpeed from './components/typingSpeed/TypingSpeed'
+
 type TypingState = {
   allTypedEntries: number
 }
@@ -64,15 +65,13 @@ function App() {
   React.useEffect(() => shiftFocus(null), [])
 
   return (
-    <ChakraProvider>
-      <div className="App">
-        <Header />
-        <TypingSpeed allTypedEntries={typingState.allTypedEntries} />
-        <Display keyPressed={lastKeyPressed} typingDispatch={typingDispatch} />
-        <Keyboard activeKeyMap={activeKeyMap} />
-        <BackgroundInput inputRef={backgroundInputElement} onBlur={shiftFocus} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} />
-      </div>
-    </ChakraProvider>
+    <div className="App">
+      <Header />
+      <TypingSpeed allTypedEntries={typingState.allTypedEntries} />
+      <Display keyPressed={lastKeyPressed} typingDispatch={typingDispatch} />
+      <Keyboard activeKeyMap={activeKeyMap} />
+      <BackgroundInput inputRef={backgroundInputElement} onBlur={shiftFocus} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} />
+    </div>
   )
 }
 
