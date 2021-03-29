@@ -30,7 +30,6 @@ const TypingSpeed = (props: TypingSpeedProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-
   return (
     <Box borderTopWidth="1px" borderBottomWidth="1px" padding="10px 5px 10px 5px" >
       <Flex direction="column">

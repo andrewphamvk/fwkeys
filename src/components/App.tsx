@@ -1,10 +1,10 @@
 import React from 'react'
 
 import Header from './header/Header'
-import Display from './display/Display'
+import TextDisplay from './display/Display'
 import Keyboard from './keyboard/Keyboard'
 import BackgroundInput from './backgroundInput/BackgroundInput'
-import TypingSpeed from './typingSpeed/TypingSpeed'
+import TypingSpeedMetrics from './typingSpeed/TypingSpeed'
 import {
   Center,
   Grid,
@@ -35,18 +35,6 @@ function App() {
   const [activeKeyMap, setActiveKeyMap] = React.useState(new Set<string>())
   const [lastKeyPressed, setLastKeyPressed] = React.useState<KeyPressEvent>({ key: "" })
   const [typingState, typingDispatch] = React.useReducer(typingReducer, { allTypedEntries: 0 })
-  // const [keyEvent, setKeyEvent] = React.useState(new React.FocusEvent<HTMLInputElement>())
-
-  // Set the focus of the application to the background input
-  const shiftFocus = (event: React.FocusEvent<HTMLInputElement> | null) => {
-    // Run the method with setTimeout to fix issue in FireFox
-    setTimeout(() => {
-      setActiveKeyMap(new Set())
-      if (backgroundInputElement != null && backgroundInputElement.current != null) {
-        backgroundInputElement.current.focus({ preventScroll: true })
-      }
-    })
-  }
 
   // When keys are pressed, add it to the key map
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -65,6 +53,17 @@ function App() {
     setActiveKeyMap(new Set(activeKeyMap))
   }
 
+  // Set the focus of the application to the background input
+  const shiftFocus = (event: React.FocusEvent<HTMLInputElement> | null) => {
+    // Run the method with setTimeout to fix issue in FireFox
+    setTimeout(() => {
+      setActiveKeyMap(new Set())
+      if (backgroundInputElement != null && backgroundInputElement.current != null) {
+        backgroundInputElement.current.focus({ preventScroll: true })
+      }
+    })
+  }
+
   // When app loads, set the focus to the background input
   React.useEffect(() => shiftFocus(null), [])
 
@@ -72,8 +71,8 @@ function App() {
     <Center>
       <Grid width="800px" overflow="hidden">
         <Header />
-        <TypingSpeed allTypedEntries={typingState.allTypedEntries} />
-        <Display keyPressed={lastKeyPressed} typingDispatch={typingDispatch} />
+        <TypingSpeedMetrics allTypedEntries={typingState.allTypedEntries} />
+        <TextDisplay keyPressed={lastKeyPressed} typingDispatch={typingDispatch} />
         <Keyboard activeKeyMap={activeKeyMap} />
         <BackgroundInput inputRef={backgroundInputElement} onBlur={shiftFocus} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} />
       </Grid>
