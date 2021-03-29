@@ -1,8 +1,9 @@
 import { Box, Text } from '@chakra-ui/layout'
-import { Button, Divider, Flex, Spacer, useColorMode } from '@chakra-ui/react'
+import {
+  Flex
+} from '@chakra-ui/react'
 import React from 'react'
 import { useTimer } from 'react-use-precision-timer'
-import styles from './typing-speed.module.css'
 
 type TypingSpeedProps = {
   allTypedEntries: number,

@@ -66,7 +66,7 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
   const [cursorIndex, setCursorIndex] = React.useState(0)
   const [renderLines, setRenderLines] = React.useState(<></>)
   const [cursorBlink, setCursorBlink] = React.useState(false)
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { toggleColorMode } = useColorMode()
   const cursorRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {

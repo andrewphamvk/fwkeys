@@ -5,7 +5,10 @@ import Display from './components/display/Display'
 import Keyboard from './components/keyboard/Keyboard'
 import BackgroundInput from './components/backgroundInput/BackgroundInput'
 import TypingSpeed from './components/typingSpeed/TypingSpeed'
-import { Center, Flex, Grid, VStack } from '@chakra-ui/react'
+import {
+  Center,
+  Grid,
+} from '@chakra-ui/react'
 
 type TypingState = {
   allTypedEntries: number

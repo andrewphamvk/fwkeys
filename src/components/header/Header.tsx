@@ -1,12 +1,9 @@
 import {
   Button,
   Flex,
-  Grid,
-  HStack,
   SimpleGrid,
   Spacer,
   useColorMode,
-  VStack
 } from '@chakra-ui/react'
 import { ReactComponent as KeyBoard } from '../../svg/twemoji.svg'
 import styles from './header.module.css'
