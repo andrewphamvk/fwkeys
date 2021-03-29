@@ -5,6 +5,7 @@ import Display from './components/display/Display'
 import Keyboard from './components/keyboard/Keyboard'
 import BackgroundInput from './components/backgroundInput/BackgroundInput'
 import TypingSpeed from './components/typingSpeed/TypingSpeed'
+import { Center, Flex, Grid, VStack } from '@chakra-ui/react'
 
 type TypingState = {
   allTypedEntries: number
@@ -65,13 +66,15 @@ function App() {
   React.useEffect(() => shiftFocus(null), [])
 
   return (
-    <div className="App">
-      <Header />
-      <TypingSpeed allTypedEntries={typingState.allTypedEntries} />
-      <Display keyPressed={lastKeyPressed} typingDispatch={typingDispatch} />
-      <Keyboard activeKeyMap={activeKeyMap} />
-      <BackgroundInput inputRef={backgroundInputElement} onBlur={shiftFocus} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} />
-    </div>
+    <Center>
+      <Grid width="800px" overflow="hidden">
+        <Header />
+        <TypingSpeed allTypedEntries={typingState.allTypedEntries} />
+        <Display keyPressed={lastKeyPressed} typingDispatch={typingDispatch} />
+        <Keyboard activeKeyMap={activeKeyMap} />
+        <BackgroundInput inputRef={backgroundInputElement} onBlur={shiftFocus} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} />
+      </Grid>
+    </Center>
   )
 }
 

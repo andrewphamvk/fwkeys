@@ -1,3 +1,4 @@
+import { Box, useColorMode } from '@chakra-ui/react'
 import React from 'react'
 import styles from './display.module.css'
 
@@ -65,6 +66,7 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
   const [cursorIndex, setCursorIndex] = React.useState(0)
   const [renderLines, setRenderLines] = React.useState(<></>)
   const [cursorBlink, setCursorBlink] = React.useState(false)
+  const { colorMode, toggleColorMode } = useColorMode()
   const cursorRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
@@ -107,6 +109,10 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
         setCursorIndex(prev => prev + 1)
       }
     }
+
+    if (keyPressed.key === "Tab") {
+      toggleColorMode()
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keyPressed])
 
@@ -118,9 +124,10 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
   }, [cursorIndex])
 
   return (
-    <div className={styles.container} ref={cursorRef}>
+    <Box ref={cursorRef} pt="8px" pb="30px">
       {renderLines}
-    </div>
+
+    </Box>
   )
 }
 

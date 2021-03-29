@@ -4,8 +4,8 @@
 }
 
 .title {
-    font-size: 1.5em;
+    font-size: 2em;
+    font-weight: 500;
     text-align: center;
     color: palevioletred;
-    margin: 0 0 1.5em 0;
 }

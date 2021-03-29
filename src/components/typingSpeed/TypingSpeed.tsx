@@ -1,3 +1,5 @@
+import { Box, Text } from '@chakra-ui/layout'
+import { Button, Divider, Flex, Spacer, useColorMode } from '@chakra-ui/react'
 import React from 'react'
 import { useTimer } from 'react-use-precision-timer'
 import styles from './typing-speed.module.css'
@@ -27,10 +29,13 @@ const TypingSpeed = (props: TypingSpeedProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+
   return (
-    <div className={styles.container}>
-      Speed: {wpm}
-    </div>
+    <Box borderTopWidth="1px" borderBottomWidth="1px" padding="15px 5px 15px 5px" paddingTop="15px" marginBottom="10px">
+      <Flex direction="column">
+        <Text fontSize="lg" fontWeight="normal">Speed: {wpm}</Text>
+      </Flex>
+    </Box>
   )
 }
 

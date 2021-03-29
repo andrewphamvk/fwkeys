@@ -1,7 +1,7 @@
 .container {
     display: block;
     width: min-content;
-    margin: 2.5em auto auto auto;
+    margin: auto auto auto auto;
 }
 
 .area {
