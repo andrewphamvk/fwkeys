@@ -124,7 +124,7 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
   }, [cursorIndex])
 
   return (
-    <Box ref={cursorRef} pt="8px" pb="30px">
+    <Box ref={cursorRef} pt="12px" pb="30px">
       {renderLines}
 
     </Box>

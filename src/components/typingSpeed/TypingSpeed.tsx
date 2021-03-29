@@ -32,7 +32,7 @@ const TypingSpeed = (props: TypingSpeedProps) => {
 
 
   return (
-    <Box borderTopWidth="1px" borderBottomWidth="1px" padding="15px 5px 15px 5px" paddingTop="15px" marginBottom="10px">
+    <Box borderTopWidth="1px" borderBottomWidth="1px" padding="10px 5px 10px 5px" >
       <Flex direction="column">
         <Text fontSize="lg" fontWeight="normal">Speed: {wpm}</Text>
       </Flex>
