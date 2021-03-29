@@ -20,9 +20,7 @@ const BackgroundInput = ({ inputRef, onBlur, onKeyDown, onKeyUp }: IBackgroundIn
         autoCorrect="off"
         autoCapitalize="off"
         aria-hidden="true"
-        width="0"
-        height="0"
-        style={{ border: "none", outline: "none" }}
+        style={{ width: "0em", height: "0em", padding: "0", margin: "0", border: "none", outline: "none" }}
       />
     </div>
   )
