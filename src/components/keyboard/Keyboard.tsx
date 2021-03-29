@@ -1,4 +1,3 @@
-import styles from './keyboard.module.css'
 import DoubleSymbolKey from '../keys/DoubleSymbolKey'
 import SingleSymbolKey from '../keys/SingleSymbolKey'
 import * as Constants from '../../constants/constants'
@@ -9,8 +8,8 @@ type KeyboardProps = {
 
 const Keyboard = ({ activeKeyMap }: KeyboardProps) => {
   return (
-    <div className={styles.container}>
-      <svg className={styles.area}>
+    <div>
+      <svg width="800px" height="280px">
         <rect height="100%" width="100%" rx={Constants.BoardRx} ry={Constants.BoardRy} fill={Constants.BaseFill} />
         <svg x={12} y={12}>
           {/* First row */}

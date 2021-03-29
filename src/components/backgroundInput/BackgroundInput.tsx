@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './background-input.module.css'
 
 interface IBackgroundInputTextProps {
   inputRef: React.RefObject<HTMLInputElement>,
@@ -10,10 +9,9 @@ interface IBackgroundInputTextProps {
 
 const BackgroundInput = ({ inputRef, onBlur, onKeyDown, onKeyUp }: IBackgroundInputTextProps) => {
   return (
-    <div className={styles.container}>
+    <div style={{ position: "absolute", overflow: "hidden" }}>
       <input
         type="text"
-        className={styles.input}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
         onBlur={onBlur}
@@ -21,7 +19,11 @@ const BackgroundInput = ({ inputRef, onBlur, onKeyDown, onKeyUp }: IBackgroundIn
         autoComplete="off"
         autoCorrect="off"
         autoCapitalize="off"
-        aria-hidden="true" />
+        aria-hidden="true"
+        width="0"
+        height="0"
+        style={{ border: "none", outline: "none" }}
+      />
     </div>
   )
 }
