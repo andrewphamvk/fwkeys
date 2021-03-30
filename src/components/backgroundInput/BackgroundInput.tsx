@@ -1,3 +1,4 @@
+import { VisuallyHidden } from '@chakra-ui/react'
 import React from 'react'
 
 interface IBackgroundInputTextProps {
@@ -9,9 +10,8 @@ interface IBackgroundInputTextProps {
 
 const BackgroundInput = ({ inputRef, onBlur, onKeyDown, onKeyUp }: IBackgroundInputTextProps) => {
   return (
-    <div style={{ position: "absolute", overflow: "hidden" }}>
-      <input
-        type="text"
+    <VisuallyHidden>
+      <input type="text"
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
         onBlur={onBlur}
@@ -20,9 +20,8 @@ const BackgroundInput = ({ inputRef, onBlur, onKeyDown, onKeyUp }: IBackgroundIn
         autoCorrect="off"
         autoCapitalize="off"
         aria-hidden="true"
-        style={{ width: "0em", height: "0em", padding: "0", margin: "0", border: "none", outline: "none" }}
       />
-    </div>
+    </VisuallyHidden>
   )
 }
 

@@ -4,9 +4,9 @@ import {
   SimpleGrid,
   Spacer,
   useColorMode,
+  Heading
 } from '@chakra-ui/react'
 import { ReactComponent as KeyBoard } from '../../svg/twemoji.svg'
-import styles from './header.module.css'
 
 
 const Header = () => {
@@ -20,13 +20,13 @@ const Header = () => {
 
       <Flex align="center">
         <Spacer />
-        <h1 className={styles.title}>fwkeys</h1>
+        <Heading color="#d87093" fontWeight="semibold">fwkeys</Heading>
         <Spacer />
       </Flex>
 
       <Flex align="center">
         <Spacer />
-        <Button onClick={toggleColorMode}>
+        <Button onClick={toggleColorMode} colorScheme="blue">
           Toggle {colorMode === "light" ? "Dark" : "Light"}
         </Button>
       </Flex>
