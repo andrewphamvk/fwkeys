@@ -1,6 +1,6 @@
-import DoubleSymbolKey from '../keys/DoubleSymbolKey'
-import SingleSymbolKey from '../keys/SingleSymbolKey'
-import * as Constants from '../../constants/constants'
+import DoubleSymbolKey from './DoubleSymbolKey'
+import SingleSymbolKey from './SingleSymbolKey'
+import * as Constants from '../constants/constants'
 
 type KeyboardProps = {
   activeKeyMap: Set<string>

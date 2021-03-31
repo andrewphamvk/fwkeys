@@ -1,4 +1,4 @@
-import * as Constants from '../../constants/constants'
+import * as Constants from '../constants/constants'
 import styles from './keys.module.css'
 
 type DoubleSymbolKeyProps = {

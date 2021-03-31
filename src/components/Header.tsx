@@ -6,7 +6,7 @@ import {
   useColorMode,
   Heading
 } from '@chakra-ui/react'
-import { ReactComponent as KeyBoard } from '../../svg/twemoji.svg'
+import { ReactComponent as KeyBoard } from '../svg/twemoji.svg'
 
 
 const Header = () => {

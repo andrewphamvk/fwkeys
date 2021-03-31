@@ -1,4 +1,4 @@
-import { Box, useColorMode } from '@chakra-ui/react'
+import { Box, useColorMode, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 import styles from './display.module.css'
 
@@ -22,7 +22,7 @@ function splitLines(input: string, maxLineLength: number) {
 }
 
 // Generate the JSX elements to render 
-const generateRenderLines = (lines: string[][], cursorIndex: number): JSX.Element => {
+const generateRenderLines = (lines: string[][], cursorIndex: number, validClass: string): JSX.Element => {
   let currentIndex = 0
   return (<>
     {lines.map((line, lineIndex) => <span key={lineIndex} className={styles.line}>
@@ -34,7 +34,7 @@ const generateRenderLines = (lines: string[][], cursorIndex: number): JSX.Elemen
             id = styles.cursor
           }
           if (currentIndex < cursorIndex) {
-            className = styles.symbol_valid
+            className = validClass
           }
 
           currentIndex += 1
@@ -68,7 +68,10 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
   const [cursorBlink, setCursorBlink] = React.useState(false)
   const { toggleColorMode } = useColorMode()
   const cursorRef = React.useRef<HTMLDivElement>(null)
+  const cursorBlinkClass = useColorModeValue(styles.blink, styles.blink_dark)
+  const validClass = useColorModeValue(styles.symbol_valid, styles.symbol_valid_dark)
 
+  // Blink cursor
   React.useEffect(() => {
     if (!cursorRef || !cursorRef.current) {
       return
@@ -77,19 +80,18 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
     if (!child) {
       return
     }
-
     let timer: NodeJS.Timeout
     if (cursorBlink) {
-      child.classList.add(styles.blink)
+      child.className = cursorBlinkClass
     }
     else {
-      child.classList.remove(styles.blink)
+      child.className = ""
     }
 
     timer = setTimeout(() => setCursorBlink(prev => !prev), 500)
     return () => clearTimeout(timer)
 
-  }, [cursorBlink, keyPressed]) // Monitor keyPressed so that spamming keys will keep cursor on
+  }, [cursorBlink, keyPressed, cursorBlinkClass]) // Monitor keyPressed so that spamming keys will keep cursor on
 
   const maxLineLength = 57
 
@@ -119,9 +121,9 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
   // Generate the display lines whenever the cursor updates
   React.useEffect(() => {
     const lines: string[][] = splitLines(input, maxLineLength)
-    setRenderLines(generateRenderLines(lines, cursorIndex))
+    setRenderLines(generateRenderLines(lines, cursorIndex, validClass))
     setCursorBlink(true)
-  }, [cursorIndex])
+  }, [cursorIndex, validClass])
 
   return (
     <Box ref={cursorRef} pt="12px" pb="30px">

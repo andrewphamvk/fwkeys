@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Header from './header/Header'
-import TextDisplay from './display/Display'
-import Keyboard from './keyboard/Keyboard'
-import BackgroundInput from './backgroundInput/BackgroundInput'
-import TypingSpeedMetrics from './typingSpeed/TypingSpeed'
+import Header from './Header'
+import TextDisplay from './Display'
+import Keyboard from './Keyboard'
+import BackgroundInput from './BackgroundInput'
+import TypingSpeedMetrics from './TypingSpeed'
 import {
   Center,
   Grid,

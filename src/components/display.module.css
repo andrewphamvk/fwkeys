@@ -32,11 +32,22 @@
     padding-top: 8px;
 }
 
-#cursor {
+.symbol_valid_dark {
+    background: #064308;
+    color: #30c921;
+    padding-top: 8px;
 }
 
 .blink {
     background-color: black;
     color: white;
 }
+
+.blink_dark {   
+    background-color: white;
+    color: black;
+}
   
+#cursor {
+
+}
