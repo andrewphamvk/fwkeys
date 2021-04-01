@@ -6,6 +6,10 @@ export const useKeyDown = () => {
   return useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       setDraft(draft => {
+        if (event.key === "Tab") {
+          event.preventDefault()
+        }
+
         draft.activeKeys.add(event.key)
         draft.keyPress = { key: event.key, code: event.code }
       })

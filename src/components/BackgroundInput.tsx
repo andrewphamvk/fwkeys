@@ -22,6 +22,7 @@ const BackgroundInput = () => {
   }
 
   // When app loads, set the focus to the background input
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => handleOnBlur(null), [])
 
   return (
