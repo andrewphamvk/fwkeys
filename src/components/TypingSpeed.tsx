@@ -1,16 +1,12 @@
+import { useState, useEffect } from 'react'
 import { Box, Text } from '@chakra-ui/layout'
-import {
-  Flex
-} from '@chakra-ui/react'
-import React from 'react'
+import { Flex } from '@chakra-ui/react'
 import { useTimer } from 'react-use-precision-timer'
+import { useGetTypingState } from '../hooks/useGetTypingState'
 
-type TypingSpeedProps = {
-  allTypedEntries: number,
-}
-
-const TypingSpeed = (props: TypingSpeedProps) => {
-  const [wpm, setWpm] = React.useState(0)
+const TypingSpeed = () => {
+  const [wpm, setWpm] = useState(0)
+  const typingState = useGetTypingState()
 
   const refreshRateInMilliseconds = 200
   const timer = useTimer({
@@ -18,14 +14,14 @@ const TypingSpeed = (props: TypingSpeedProps) => {
     callback: () => {
       // Simple algorithm to calculate WPM based on:
       // https://www.speedtypingonline.com/typing-equations#:~:text=Simply%20count%20all%20typed%20entries
-      const words = props.allTypedEntries / 5
+      const words = typingState.allTypedEntries / 5
       const time = (timer.getElapsedStartedTime() / 60000)
       const newWpm = Math.trunc(words / time)
       setWpm(newWpm)
     }
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     timer.start()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

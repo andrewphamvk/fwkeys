@@ -1,5 +1,5 @@
 import { Box, useColorMode, useColorModeValue } from '@chakra-ui/react'
-import React from 'react'
+import { useState, useRef, useEffect } from 'react'
 import styles from './display.module.css'
 import { useGetKeyPress } from '../hooks/useGetKeyPress'
 import { useTypedEntries } from '../hooks/useTypedEntries'
@@ -54,20 +54,20 @@ const generateRenderLines = (lines: string[][], cursorIndex: number, validClass:
 let nextInput = "thould predining befor ther have just thread and might submit lidzy any livil had the excely who prest sharly"
 let input = "frez told volute her have later remonly coly wered recold othe exced you past for must saw wher betwen"
 
-const Display = () => {
+const TextDisplay = () => {
   const keyPressed = useGetKeyPress()
   const { incrementTypedEntry } = useTypedEntries()
 
-  const [cursorIndex, setCursorIndex] = React.useState(0)
-  const [renderLines, setRenderLines] = React.useState(<></>)
-  const [cursorBlink, setCursorBlink] = React.useState(false)
+  const [cursorIndex, setCursorIndex] = useState(0)
+  const [renderLines, setRenderLines] = useState(<></>)
+  const [cursorBlink, setCursorBlink] = useState(false)
   const { toggleColorMode } = useColorMode()
-  const cursorRef = React.useRef<HTMLDivElement>(null)
+  const cursorRef = useRef<HTMLDivElement>(null)
   const cursorBlinkClass = useColorModeValue(styles.blink, styles.blink_dark)
   const validClass = useColorModeValue(styles.symbol_valid, styles.symbol_valid_dark)
 
   // Blink cursor
-  React.useEffect(() => {
+  useEffect(() => {
     if (!cursorRef || !cursorRef.current) {
       return
     }
@@ -91,7 +91,7 @@ const Display = () => {
   const maxLineLength = 57
 
   // Check if key pressed is correct
-  React.useEffect(() => {
+  useEffect(() => {
     console.log(`keyPressed: ${keyPressed.key}`)
     setCursorBlink(true)
     if (input[cursorIndex] === keyPressed.key) {
@@ -114,7 +114,7 @@ const Display = () => {
   }, [keyPressed])
 
   // Generate the display lines whenever the cursor updates
-  React.useEffect(() => {
+  useEffect(() => {
     const lines: string[][] = splitLines(input, maxLineLength)
     setRenderLines(generateRenderLines(lines, cursorIndex, validClass))
     setCursorBlink(true)
@@ -128,4 +128,4 @@ const Display = () => {
   )
 }
 
-export default Display
+export default TextDisplay

@@ -1,5 +1,5 @@
 import { VisuallyHidden } from '@chakra-ui/react'
-import React, { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useKeyUp } from '../hooks/useKeyUp'
 import { useKeyDown } from '../hooks/useKeyDown'
 import { useResetActiveKeys } from '../hooks/useResetActiveKeys'
@@ -23,7 +23,7 @@ const BackgroundInput = () => {
 
   // When app loads, set the focus to the background input
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  React.useEffect(() => handleOnBlur(null), [])
+  useEffect(() => handleOnBlur(null), [])
 
   return (
     <VisuallyHidden>
