@@ -1,6 +1,9 @@
 import { Box, useColorMode, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 import styles from './display.module.css'
+import { useGetKeyPress } from '../hooks/useGetKeyPress'
+import { useTypedEntries } from '../hooks/useTypedEntries'
+
 
 // Split a string into lines of maxLineLength
 function splitLines(input: string, maxLineLength: number) {
@@ -48,21 +51,13 @@ const generateRenderLines = (lines: string[][], cursorIndex: number, validClass:
   </>)
 }
 
-type KeyPress = {
-  key: string
-}
-
-type DisplayProps = {
-  keyPressed: KeyPress,
-  typingDispatch: React.Dispatch<{
-    type: "increment_typed_entries"
-  }>
-}
-
 let nextInput = "thould predining befor ther have just thread and might submit lidzy any livil had the excely who prest sharly"
 let input = "frez told volute her have later remonly coly wered recold othe exced you past for must saw wher betwen"
 
-const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
+const Display = () => {
+  const keyPressed = useGetKeyPress()
+  const { incrementTypedEntry } = useTypedEntries()
+
   const [cursorIndex, setCursorIndex] = React.useState(0)
   const [renderLines, setRenderLines] = React.useState(<></>)
   const [cursorBlink, setCursorBlink] = React.useState(false)
@@ -102,7 +97,7 @@ const Display = ({ keyPressed, typingDispatch }: DisplayProps) => {
     if (input[cursorIndex] === keyPressed.key) {
       // If the correct key is pressed, deactivate blinker so that it can be activated after render lines generation
       setCursorBlink(false)
-      typingDispatch({ type: 'increment_typed_entries' })
+      incrementTypedEntry()
       if (cursorIndex === input.length - 1) {
         [input, nextInput] = [nextInput, input]
         setCursorIndex(0)

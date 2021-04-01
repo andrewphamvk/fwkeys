@@ -4,10 +4,10 @@ import { useSetDraft } from '../store'
 export const useKeyDown = () => {
   const setDraft = useSetDraft()
   return useCallback(
-    (key: string) => {
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
       setDraft(draft => {
-        draft.activeKeys.add(key)
-        draft.keyPress = { key: key }
+        draft.activeKeys.add(event.key)
+        draft.keyPress = { key: event.key, code: event.code }
       })
     },
     [setDraft]

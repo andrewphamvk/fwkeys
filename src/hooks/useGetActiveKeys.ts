@@ -1,6 +1,6 @@
 import { useTrackedState } from '../store'
 
-export const useKeyDown = () => {
+export const useGetActiveKeys = () => {
   const state = useTrackedState()
   return state.activeKeys
 }

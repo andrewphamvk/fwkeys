@@ -1,9 +1,12 @@
 import { useState, useCallback } from 'react'
 import { createContainer } from 'react-tracked'
-import produce, { Draft } from 'immer'
+import produce, { Draft, enableMapSet } from 'immer'
+
+enableMapSet()
 
 type KeyPress = {
   key: string
+  code: string
 }
 
 type TypingState = {
@@ -18,7 +21,7 @@ export type State = {
 }
 
 const initialState: State = {
-  keyPress: { key: '' },
+  keyPress: { key: '', code: '' },
   activeKeys: new Set(),
   lastWpm: 0,
   typingState: {

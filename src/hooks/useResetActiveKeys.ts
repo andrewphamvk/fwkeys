@@ -1,12 +1,12 @@
 import { useCallback } from 'react'
 import { useSetDraft } from '../store'
 
-export const useKeyUp = () => {
+export const useResetActiveKeys = () => {
   const setDraft = useSetDraft()
   return useCallback(
-    (event: React.KeyboardEvent<HTMLInputElement>) => {
+    () => {
       setDraft(draft => {
-        draft.activeKeys.delete(event.key)
+        draft.activeKeys = new Set<string>()
       })
     },
     [setDraft]
