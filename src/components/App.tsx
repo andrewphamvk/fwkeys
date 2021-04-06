@@ -4,6 +4,7 @@ import Keyboard from './Keyboard'
 import BackgroundInput from './BackgroundInput'
 import TypingSpeed from './TypingSpeed'
 import { Center, Grid } from '@chakra-ui/react'
+import { Footer } from './Footer'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <TextDisplay />
         <Keyboard />
         <BackgroundInput />
+        <Footer />
       </Grid>
     </Center>
   )
