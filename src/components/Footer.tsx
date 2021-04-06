@@ -1,4 +1,4 @@
-import { Box, Center, Text } from "@chakra-ui/layout"
+import { Center, Text } from "@chakra-ui/layout"
 
 export const Footer = () => {
   return (
