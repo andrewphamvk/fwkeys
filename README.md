@@ -1,6 +1,10 @@
-# Web
+<h1 align="center" style="color:rgb(216, 112, 147)">
+fwkeys
+</h1>
 
-This is the Create React App (CRA) front-end for fwkeys.
+---
+
+A single page application to practice touch typing.
 
 ## Structure
 
