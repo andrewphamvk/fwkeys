@@ -1,0 +1,5 @@
+# import * from "../generated/graphql.tsx"
+
+query Hello {
+
+}

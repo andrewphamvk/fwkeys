@@ -1,6 +1,6 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cf6b4d4e-09fe-4edf-b342-1a6455f4d87f/deploy-status)](https://app.netlify.com/sites/vigilant-pike-ec281c/deploys)
-
 # fwkeys
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cf6b4d4e-09fe-4edf-b342-1a6455f4d87f/deploy-status)](https://app.netlify.com/sites/vigilant-pike-ec281c/deploys)
 
 A React based web application to practice your typing skills.
 
