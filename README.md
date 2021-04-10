@@ -1,8 +1,4 @@
-<h1 align="center" style="color:rgb(216, 112, 147)">
-fwkeys
-</h1>
-
----
+# fwkeys
 
 A single page application to practice touch typing.
 
