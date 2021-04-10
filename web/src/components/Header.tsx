@@ -4,13 +4,12 @@ import {
   SimpleGrid,
   Spacer,
   useColorMode,
-  Heading
-} from '@chakra-ui/react'
-import { ReactComponent as KeyBoard } from '../svg/twemoji.svg'
-
+  Heading,
+} from "@chakra-ui/react";
+import { ReactComponent as KeyBoard } from "../svg/twemoji.svg";
 
 const Header = () => {
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <SimpleGrid textAlign="center" columns={3} p="20px 8px 20px 8px">
@@ -20,7 +19,9 @@ const Header = () => {
 
       <Flex align="center">
         <Spacer />
-        <Heading color="#d87093" fontWeight="semibold">fwkeys</Heading>
+        <Heading color="#d87093" fontWeight="semibold">
+          fwkeys
+        </Heading>
         <Spacer />
       </Flex>
 
@@ -30,9 +31,8 @@ const Header = () => {
           Toggle {colorMode === "light" ? "Dark" : "Light"}
         </Button>
       </Flex>
-
     </SimpleGrid>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

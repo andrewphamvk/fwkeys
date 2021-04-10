@@ -1,19 +1,19 @@
-import { useCallback } from 'react'
-import { useSetDraft } from '../store'
+import { useCallback } from "react";
+import { useSetDraft } from "../store";
 
 export const useKeyDown = () => {
-  const setDraft = useSetDraft()
+  const setDraft = useSetDraft();
   return useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
-      setDraft(draft => {
+      setDraft((draft) => {
         if (event.key === "Tab") {
-          event.preventDefault()
+          event.preventDefault();
         }
 
-        draft.activeKeys.add(event.key)
-        draft.keyPress = { key: event.key, code: event.code }
-      })
+        draft.activeKeys.add(event.key);
+        draft.keyPress = { key: event.key, code: event.code };
+      });
     },
     [setDraft]
-  )
-}
+  );
+};

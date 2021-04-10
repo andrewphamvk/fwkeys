@@ -1,53 +1,52 @@
 .container {
-    width: 800px;   
-    margin: 0 auto;
-    overflow-wrap: break-word;
+  width: 800px;
+  margin: 0 auto;
+  overflow-wrap: break-word;
 }
 
 .container2 {
-    composes: container;
-    background-color: grey;
+  composes: container;
+  background-color: grey;
 }
 
 .line {
-    margin-top: 12px;
-    display: block;
-    /* background-color: papayawhip; */
-    padding-top: 8px;
+  margin-top: 12px;
+  display: block;
+  /* background-color: papayawhip; */
+  padding-top: 8px;
 }
 
 .token {
-    font-family: 'Lucida Console', monospace;
-    font-size: x-large;
-    padding-top: 8px;
+  font-family: "Lucida Console", monospace;
+  font-size: x-large;
+  padding-top: 8px;
 }
 
 .token > span {
-    padding-top: 8px
+  padding-top: 8px;
 }
 
 .symbol_valid {
-    background: #e7fbd3;
-    color:#0e630e;
-    padding-top: 8px;
+  background: #e7fbd3;
+  color: #0e630e;
+  padding-top: 8px;
 }
 
 .symbol_valid_dark {
-    background: #064308;
-    color: #30c921;
-    padding-top: 8px;
+  background: #064308;
+  color: #30c921;
+  padding-top: 8px;
 }
 
 .blink {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
-.blink_dark {   
-    background-color: white;
-    color: black;
+.blink_dark {
+  background-color: white;
+  color: black;
 }
-  
+
 #cursor {
-
 }

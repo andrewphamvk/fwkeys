@@ -1,14 +1,14 @@
-import * as Constants from '../constants/constants'
-import styles from './keys.module.css'
+import * as Constants from "../constants/constants";
+import styles from "./keys.module.css";
 
 type SingleSymbolKeyProps = {
-  x: string | number,
-  y: string | number,
-  width?: string | number,
-  text?: string,
-  textX?: string | number,
-  isActive?: boolean
-}
+  x: string | number;
+  y: string | number;
+  width?: string | number;
+  text?: string;
+  textX?: string | number;
+  isActive?: boolean;
+};
 
 const SingleSymbolKey = (props: SingleSymbolKeyProps) => {
   return (
@@ -17,25 +17,26 @@ const SingleSymbolKey = (props: SingleSymbolKeyProps) => {
       x={props.x}
       y={props.y}
       height={Constants.KeyHeight}
-      width={props.width ?? Constants.KeyWidth}>
-
+      width={props.width ?? Constants.KeyWidth}
+    >
       <rect
         height="100%"
         width="100%"
         rx={Constants.KeyRx}
         ry={Constants.KeyRy}
-        fill={Constants.KeyFill} />
+        fill={Constants.KeyFill}
+      />
 
       <text
         className={styles.primary}
         x={props.textX ?? "50%"}
         y={Constants.MidKeyY}
-        fill="white">
+        fill="white"
+      >
         {props.text}
       </text>
-
     </svg>
-  )
-}
+  );
+};
 
-export default SingleSymbolKey
+export default SingleSymbolKey;

@@ -1,6 +1,6 @@
-import { useTrackedState } from '../store'
+import { useTrackedState } from "../store";
 
 export const useGetKeyPress = () => {
-  const state = useTrackedState()
-  return state.keyPress
-}
+  const state = useTrackedState();
+  return state.keyPress;
+};

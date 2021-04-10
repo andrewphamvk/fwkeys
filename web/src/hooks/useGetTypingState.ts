@@ -1,6 +1,6 @@
-import { useTrackedState } from '../store'
+import { useTrackedState } from "../store";
 
 export const useGetTypingState = () => {
-  const state = useTrackedState()
-  return state.typingState
-}
+  const state = useTrackedState();
+  return state.typingState;
+};

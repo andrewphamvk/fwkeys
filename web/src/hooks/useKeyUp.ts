@@ -1,14 +1,14 @@
-import { useCallback } from 'react'
-import { useSetDraft } from '../store'
+import { useCallback } from "react";
+import { useSetDraft } from "../store";
 
 export const useKeyUp = () => {
-  const setDraft = useSetDraft()
+  const setDraft = useSetDraft();
   return useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
-      setDraft(draft => {
-        draft.activeKeys.delete(event.key)
-      })
+      setDraft((draft) => {
+        draft.activeKeys.delete(event.key);
+      });
     },
     [setDraft]
-  )
-}
+  );
+};
