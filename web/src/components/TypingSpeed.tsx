@@ -4,7 +4,7 @@ import { Flex } from "@chakra-ui/react";
 import { useTimer } from "react-use-precision-timer";
 import { useGetTypingState } from "../hooks/useGetTypingState";
 
-const TypingSpeed = () => {
+export const TypingSpeed = () => {
   const [wpm, setWpm] = useState(0);
   const typingState = useGetTypingState();
 
@@ -40,5 +40,3 @@ const TypingSpeed = () => {
     </Box>
   );
 };
-
-export default TypingSpeed;

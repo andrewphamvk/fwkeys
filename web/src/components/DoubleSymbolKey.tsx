@@ -10,7 +10,7 @@ type DoubleSymbolKeyProps = {
   isActive?: boolean;
 };
 
-const DoubleSymbolKey = (props: DoubleSymbolKeyProps) => {
+export const DoubleSymbolKey = (props: DoubleSymbolKeyProps) => {
   return (
     <svg
       className={props.isActive ? styles.active : styles.key}
@@ -47,5 +47,3 @@ const DoubleSymbolKey = (props: DoubleSymbolKeyProps) => {
     </svg>
   );
 };
-
-export default DoubleSymbolKey;

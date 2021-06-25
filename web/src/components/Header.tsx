@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { ReactComponent as KeyBoard } from "../svg/twemoji.svg";
 
-const Header = () => {
+export const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -34,5 +34,3 @@ const Header = () => {
     </SimpleGrid>
   );
 };
-
-export default Header;

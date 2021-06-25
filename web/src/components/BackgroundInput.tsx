@@ -4,7 +4,7 @@ import { useKeyUp } from "../hooks/useKeyUp";
 import { useKeyDown } from "../hooks/useKeyDown";
 import { useResetActiveKeys } from "../hooks/useResetActiveKeys";
 
-const BackgroundInput = () => {
+export const BackgroundInput = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const keyUp = useKeyUp();
   const keyDown = useKeyDown();
@@ -41,5 +41,3 @@ const BackgroundInput = () => {
     </VisuallyHidden>
   );
 };
-
-export default BackgroundInput;

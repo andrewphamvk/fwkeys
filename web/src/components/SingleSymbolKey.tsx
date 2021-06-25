@@ -10,7 +10,7 @@ type SingleSymbolKeyProps = {
   isActive?: boolean;
 };
 
-const SingleSymbolKey = (props: SingleSymbolKeyProps) => {
+export const SingleSymbolKey = (props: SingleSymbolKeyProps) => {
   return (
     <svg
       className={props.isActive ? styles.active : styles.key}
@@ -38,5 +38,3 @@ const SingleSymbolKey = (props: SingleSymbolKeyProps) => {
     </svg>
   );
 };
-
-export default SingleSymbolKey;

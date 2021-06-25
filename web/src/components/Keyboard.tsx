@@ -1,9 +1,9 @@
-import DoubleSymbolKey from "./DoubleSymbolKey";
-import SingleSymbolKey from "./SingleSymbolKey";
+import { DoubleSymbolKey } from "./DoubleSymbolKey";
+import { SingleSymbolKey } from "./SingleSymbolKey";
 import * as Constants from "../constants/constants";
 import { useGetActiveKeys } from "../hooks/useGetActiveKeys";
 
-const Keyboard = () => {
+export const Keyboard = () => {
   const activeKeyMap = useGetActiveKeys();
 
   return (
@@ -417,5 +417,3 @@ const Keyboard = () => {
     </div>
   );
 };
-
-export default Keyboard;

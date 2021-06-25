@@ -67,7 +67,7 @@ let nextInput =
 let input =
   "frez told volute her have later remonly coly wered recold othe exced you past for must saw wher betwen";
 
-const TextDisplay = () => {
+export const TextDisplay = () => {
   const keyPressed = useGetKeyPress();
   const { incrementTypedEntry } = useTypedEntries();
 
@@ -139,5 +139,3 @@ const TextDisplay = () => {
     </Box>
   );
 };
-
-export default TextDisplay;

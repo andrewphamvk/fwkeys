@@ -1,36 +1,26 @@
-import Header from "./Header";
-import TextDisplay from "./TextDisplay";
-import Keyboard from "./Keyboard";
-import BackgroundInput from "./BackgroundInput";
-import TypingSpeed from "./TypingSpeed";
-import { Center, Grid } from "@chakra-ui/react";
-import { Footer } from "./Footer";
-import { gql, useMutation, useQuery } from "@apollo/client";
+import React, { useEffect, useState } from "react";
+import { setAccessToken } from "../hooks/accessTokens";
+import { Routes } from "./Routes";
 
-function App() {
-  const [login, { data }] = useMutation(gql`
-    mutation {
-      login(email: "andrewpham.vk@outlook.com", password: "andrew") {
-        accessToken
-      }
-    }
-  `);
+export const App = () => {
+  const [loading, setLoading] = useState(true);
 
-  var result = login();
-  console.log(result);
+  useEffect(() => {
+    fetch("http://localhost:4000/refresh_token", {
+      method: "POST",
+      credentials: "include",
+    }).then(async (x) => {
+      console.log("calling refresh token api");
+      const res = await x.json();
+      setAccessToken(res.accessToken);
+      console.log(res);
+      setLoading(false);
+    });
+  }, []);
 
-  return (
-    <Center>
-      <Grid width="800px" overflow="hidden">
-        <Header />
-        <TypingSpeed />
-        <TextDisplay />
-        <Keyboard />
-        <BackgroundInput />
-        <Footer />
-      </Grid>
-    </Center>
-  );
-}
+  // if (loading) {
+  //   return <div>loading...</div>;
+  // }
 
-export default App;
+  return <Routes />;
+};
