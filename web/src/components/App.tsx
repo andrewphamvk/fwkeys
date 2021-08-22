@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { setAccessToken } from "../hooks/accessTokens";
+import { Home } from "../pages/Home";
 import { Routes } from "./Routes";
 
 export const App = () => {
@@ -22,5 +23,5 @@ export const App = () => {
   //   return <div>loading...</div>;
   // }
 
-  return <Routes />;
+  return <Home />;
 };

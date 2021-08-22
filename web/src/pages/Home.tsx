@@ -11,7 +11,7 @@ import { useUsersQuery } from "../generated/graphql";
 type Props = {};
 
 export const Home = (props: Props) => {
-  const { data, loading } = useUsersQuery({ fetchPolicy: "network-only" });
+  // const { data, loading } = useUsersQuery({ fetchPolicy: "network-only" });
 
   // if (!data) {
   //   return <div>loading...</div>;

@@ -8,10 +8,10 @@ Visit [fwkeys](https://vigilant-pike-ec281c.netlify.app/)
 
 ## Structure
 
-| Codebase           |       Description       |
-| :----------------- | :---------------------: |
-| [web](kousa)       |     React frontend      |
-| [server](shawarma) | Express/GraphQL backend |
+| Codebase         |       Description       |
+| :--------------- | :---------------------: |
+| [web](web)       |     React frontend      |
+| [server](server) | Express/GraphQL backend |
 
 ## Contributions
 

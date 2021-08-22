@@ -10,7 +10,7 @@ export const useKeyDown = () => {
           event.preventDefault();
         }
 
-        draft.activeKeys.add(event.key);
+        draft.activeKeys.add(event.code);
         draft.keyPress = { key: event.key, code: event.code };
       });
     },

@@ -6,7 +6,7 @@ export const useKeyUp = () => {
   return useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       setDraft((draft) => {
-        draft.activeKeys.delete(event.key);
+        draft.activeKeys.delete(event.code);
       });
     },
     [setDraft]
